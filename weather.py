@@ -141,7 +141,7 @@ def weather(): # Function to fetch and display weather information
         
         try:
             city = data['name'] # Extract the city name from the weather data
-            temperature = round(data['main']['temp'] - 273, 2) # Convert temperature from Kelvin to Celsius and round it
+            temperature = round(data['main']['temp'] - 273, 0) # Convert temperature from Kelvin to Celsius and round it
             weather_condition = data['weather'][0]['description'] # Extract the weather description from the data
         except (KeyError, IndexError, TypeError):
             return render_template('weather.html', description=["Error processing weather data."]), 500
