@@ -147,11 +147,19 @@
         
         {% if description %}
             <div class="description">
-                <p>{{ description }}</p>
+                <ul>
+                    {% for item in description %}
+                        {% if item.strip() %}
+                            <li>{{ item.strip() }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
         {% else %}
             <div class="description">
-                <p>No weather information available. Please search for a city first.</p>
+                <ul>
+                    <li>No weather information available. Please search for a city first.</li>
+                </ul>
             </div>
         {% endif %}
         
